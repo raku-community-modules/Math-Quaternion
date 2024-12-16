@@ -1,4 +1,6 @@
 Revision history for Math::Quaternion
 
 {{$NEXT}}
+
+0.2  2024-12-16T16:02:17+01:00
     - Initial version as a Raku Community module
