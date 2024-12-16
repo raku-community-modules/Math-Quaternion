@@ -1,7 +1,8 @@
-use v6;
 use Test;
-plan *;
+
 use Math::Quaternion;
+
+plan 3;
 
 class EmptySubclass is Math::Quaternion {};
 
@@ -13,5 +14,4 @@ isa-ok $e, EmptySubclass,    'A new EmptySubclass isa EmptySubclass';
 
 is     $u * 2 + $e, '2 + 0i + 0j + 0k',  '.unit, math, and .Str work';
 
-done-testing;
-# vim: ft=perl6
+# vim: expandtab shiftwidth=4

@@ -1,9 +1,12 @@
-use v6;
 use Test;
-plan *;
+
 use Math::Quaternion;
 
-sub is_q ( Math::Quaternion $got, @expected, $reason = '' ) {
+plan 11;
+
+sub is_q (
+  Math::Quaternion $got, @expected, $reason = ''
+) is test-assertion {
     # Complex always have real coefficients, so we use .Num to force
     # conversion when @expected might contain Ints.
     is-deeply( [$got.coeffs».Num], [@expected».Num], $reason );
@@ -28,5 +31,4 @@ ok $qc eqv Math::Quaternion.new( $c.re, $c.im, 0, 0 ), 'eqv';
 ok ! $q.is_complex,  '$q is not Complex';
 ok  $qc.is_complex,  '$c is     Complex';
 
-done-testing;
-# vim: ft=perl6
+# vim: expandtab shiftwidth=4

@@ -1,13 +1,26 @@
 {
-    "perl"        : "6.*",
-    "name"        : "Perl6-Math-Quaternion",
-    "version"     : "*",
-    "description" : "Hyper-complex numbers as objects with operators",
-    "depends"     : [],
-    "author"      : "Bruce Gray",
-    "authority"   : "cpan+BGRAY",
-    "provides"    : {
-        "Math::Quaternion" : "lib/Math/Quaternion.pm6"
-    },
-    "source-url"  : "git://github.com/Util/Perl6-Math-Quaternion.git"
+  "auth": "zef:raku-community-modules",
+  "author": "Bruce Gray",
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Hyper-complex numbers as objects with operators",
+  "license": "Artistic-2.0",
+  "name": "Math::Quaternion",
+  "perl": "6.*",
+  "provides": {
+    "Math::Quaternion": "lib/Math/Quaternion.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/raku-community-modules/Math-Quaternion.git",
+  "tags": [
+    "MATH",
+    "COMPLEX",
+    "QUATERNION"
+  ],
+  "test-depends": [
+  ],
+  "version": "0.2"
 }

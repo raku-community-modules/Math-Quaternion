@@ -1,12 +1,17 @@
-use v6;
 use Test;
-plan *;
+
 use Math::Quaternion;
 
-multi sub is_q ( Math::Quaternion $got, @expected, $reason = '' ) {
+plan 38;
+
+multi sub is_q(
+  Math::Quaternion $got, @expected, $reason = ''
+) is test-assertion {
     is-deeply( [$got.coeffs], @expected, $reason );
 }
-multi sub is_q ( Math::Quaternion $got, Math::Quaternion $expected, $reason = '' ) {
+multi sub is_q(
+  Math::Quaternion $got, Math::Quaternion $expected, $reason = ''
+) is test-assertion {
     is-deeply( [$got.coeffs], [$expected.coeffs], $reason );
 }
 
@@ -16,7 +21,7 @@ my Math::Quaternion $q1 .= new:  2, 3, 4, 5;
 my Math::Quaternion $q2 .= new:  3, 4, 5, 6;
 my Math::Quaternion $qr .= new: $r, 0, 0, 0;
 
-is   $q.norm,   5.47722557505166,   '.norm';
+is-approx   $q.norm,   5.4772255,   '.norm';
 
 is_q $q.conj,   [  1, -2, -3, -4 ], '.conj';
 is_q -$q,       [ -1, -2, -3, -4 ], 'Unary minus';
@@ -76,5 +81,4 @@ my sub four_quats ( $n ) {
     is_q $i * $k,  -$j, 'i * k = -j';
 }
 
-done-testing;
-# vim: ft=perl6
+# vim: expandtab shiftwidth=4

@@ -1,6 +1,5 @@
-use v6;
 use Test;
-plan *;
+
 use Math::Quaternion;
 
 my         $r = 7;
@@ -32,6 +31,9 @@ my @data =
     [ 0, 1, 1, 0, :$qu ],
     [ 0, 0, 0, 0, :$qU ], # Non-real Unit Q
 ;
+
+plan @test_pairs * @data;
+
 for @test_pairs.kv -> $i, ( :key($test_name), :value($subref) ) {
     for @data -> $d_aref {
         my ( $expected, $q_pair ) = $d_aref.[ $i, *-1 ];
@@ -41,5 +43,4 @@ for @test_pairs.kv -> $i, ( :key($test_name), :value($subref) ) {
     }
 }
 
-done-testing;
-# vim: ft=perl6
+# vim: expandtab shiftwidth=4
