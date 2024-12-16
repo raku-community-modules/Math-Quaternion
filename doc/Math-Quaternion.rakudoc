@@ -35,7 +35,6 @@ its API differs from the excellent Perl Math::Quaternion module.
 
 Wikipedia       Perl            Raku6           Boost           dwh             RAW
 =============== =============== =============== =============== =============== ===============
-# Accessors                                                                     .
 a               $_->[0]         $.r             R_component_1   real            Real____________ part of a Q (as accessor)
 b               $_->[1]         $.i             R_component_2   imag_i          First_ imaginary part of a Q (as accessor)
 c               $_->[2]         $.j             R_component_3   imag_j          Second imaginary part of a Q (as accessor)
@@ -43,8 +42,6 @@ d               $_->[3]         $.k             R_component_4   imag_k          
                                 .coeffs                                         (r, i, j, k) # List, not arrayref nor vector
                                 .v                                              (i, j, k)    # List, not arrayref nor vector
                                                                                 .
-# Reals                                                                         .
-                                                                csgn            is_zero ? 0.0 : sign( r );
 norm            norm                            abs             abs             sum_of_squares( r,i,j,k ).sqrt
                 squarednorm                     norm            norm            sum_of_squares( r,i,j,k )
                                                 abs(unreal)     abs_imag        sum_of_squares(   i,j,k ).sqrt
@@ -52,7 +49,6 @@ norm            norm                            abs             abs             
                                                                 arg             atan2( sum_of_squares(   i,j,k ).sqrt, r );
 distance                                                                        .
                                                                                 .
-# Quaternion returned:                                                          .
                                                 unreal          imag            self.( 0.0,  i,  j,  k );
                                                                 conj            self.(   r, -i, -j, -k );
                                                                 operator *      self.(   r, -i, -j, -k );
@@ -61,7 +57,6 @@ distance                                                                        
                                                                 inverse         self.new: (r,-i,-j,-k) / sum_of_squares( r,i,j,k )
 versor                                                                          self / sum_of_squares( r,i,j,k ).sqrt
                                                                                 .
-# Bools                                                                         .
                                                                 is_nan          r != r or i != i or j != j or k != k;
                                                                 is_inf          any(r,i,j,k) == any(PosInf,NegInf)
                                                                 is_neg_inf      all(_,i,j,k) == 0 and r == NEG_INF;
@@ -72,7 +67,6 @@ versor                                                                          
                                 is_complex                                      all(_,_,j,k) == 0
                                 is_imaginary                    is_imaginary    r == 0
                                                                                 .
-# Misc:                                                                         .
                                                                 rotate          When |q| == 1
                                                                 sqrt            .
 
